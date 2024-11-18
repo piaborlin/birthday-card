@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      position: relative;
+      width: 340px;
+      height: 660px;
+      transform-style: preserve-3d;
+      transition: transform 1s;
+    }
+
+    .card.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .front {
+      background: linear-gradient(135deg, #ff6b6b, #fca5a5);
+      color: white;
+      cursor: pointer;
+      justify-content: center;
+    }
+
+    .back {
+      background: white;
+      transform: rotateY(180deg);
+      color: #374151;
+    }
+
+    .cake {
+      font-size: 60px;
+      margin-bottom: 20px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 10px 0;
+      line-height: 1.5;
+      font-size: 15px;
+    }
+
+    .options {
+      margin-top: 15px;
+      text-align: left;
+      width: 100%;
+    }
+
+    .option {
+      margin-bottom: 15px;
+      padding: 12px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      color: #374151;
+    }
+
+    .read-more {
+      color: #2563eb;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .read-more:hover {
+      text-decoration: underline;
+    }
+
+    .click-message {
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      opacity: 0.8;
+      cursor: pointer;
+      padding: 15px 0;
+    }
+
+    .gift-note {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .content {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="front" onclick="this.parentElement.classList.toggle('flipped')">
+      <div class="cake">🎂</div>
+      <h1>🎉 Najla 50 år 🎉</h1>
+      <h1>Grattis på födelsedagen!</h1>
+      <h4>Önskar: Pia</h4>
+      <p>Klicka för att öppna ditt kort</p>
+    </div>
+    <div class="back">
+      <div class="content">
+        <p>Till din födelsedag vill jag bjuda dig på en unik middagsupplevelse som vi kan dela tillsammans! 🎁</p>
+        
+        <div class="options">
+          <p>Du får välja mellan två spännande alternativ:</p>
+          
+          <div class="option">
+            <p>🕯️ <strong>Spökmiddag</strong></p>
+            <p>En mystisk kväll med middag och spökhistorier i historisk miljö</p>
+            <a href="https://www.stockholmghostwalk.com/" target="_blank" class="read-more" onclick="event.stopPropagation()">Läs mer ›</a>
+          </div>
+          
+          <div class="option">
+            <p>🌑 <strong>Middag i mörkret</strong></p>
+            <p>En unik smakresa där vi äter i totalt mörker</p>
+            <a href="https://svartklubben.com/koncept/" target="_blank" class="read-more" onclick="event.stopPropagation()">Läs mer ›</a>
+          </div>
+        </div>
+        <p class="gift-note">Välj det alternativ som lockar dig mest, så bokar jag! Jag står för upp till 675 kr av upplevelsen. 💝</p>
+        <div class="click-message" onclick="this.closest('.card').classList.toggle('flipped')">
+          Klicka för att stänga
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
